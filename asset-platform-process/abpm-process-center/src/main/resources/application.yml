@@ -1,0 +1,70 @@
+flowable:
+  async-executor-activate: true
+  checkProcessDefinitions: false
+  common:
+    app:
+      idm-url: a
+  database-schema-update: true
+  history-level: full
+pagehelper:
+  helperDialect: mysql
+  params: count=countSql
+  reasonable: true
+  supportMethodsArguments: true
+security:
+  user:
+    name: clientadmin
+    password: 123
+server:
+  context-path: /
+  port: 9000
+spring:
+#  main:
+#    allow-bean-definition-overriding: true
+  datasource:
+    initialSize: 5
+    maxActive: 20
+    minIdle: 5
+    type: com.alibaba.druid.pool.DruidDataSource
+  http:
+    multipart:
+      maxFileSize: 10Mb
+      maxRequestSize: 10Mb
+  profiles:
+    active: test
+  thymeleaf:
+    cache: false
+    content-type: text/html
+    encoding: UTF-8
+    mode: LEGACYHTML5
+  redis:
+    host: 10.1.18.178
+    port: 6379
+    jedis:
+      pool:
+        max-wait: 30000ms
+        max-active: 100
+        max-idle: 20
+        min-idle: 0
+    timeout: 3000ms
+synchronize: true
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mybatis/mapper/*Mapper.xml
+  type-aliases-package: com.asset.dao.**
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      table-prefix: as_
+      db-type: MYSQL
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+
+
+
